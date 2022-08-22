@@ -336,82 +336,142 @@
 </div></div>
       <div id="main-container" class="main-container">
 
-    <div class="archive">
-        <h1 class="archive-title">我の博客归档记录</h1>
-        <ul class="archive-list">
+
+  <style>
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+内阴影+圆角*/
+pre::-webkit-scrollbar-track {
+  background-color:#F5F5F5;
+}
+/*定义滑块
+内阴影+圆角*/
+pre::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 83, 100);
+}
+
+pre:active {
+  background-color: rgb(81, 95, 116);
+}
+</style>
+
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title"></h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
             
-                <li class="archive-list__year">
-                    <h2>2022年</h2>
-                    <ul>
-                        
-                            <li class="archive-list__month">
-                                <h3>第08の月</h3>
-                                <ul>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/20/hello-world/">Hello World</a>
-                                                <span>08月20日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/dataFormat(util)/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/echarts/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/vue/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/树表选择子类并传对应id(级联选择器）/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/树结构列表选择与点击/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/深浅拷贝的运用/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/设置公用样式/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                </ul>
-                            </li>
-                        
-                    </ul>
-                </li>
+          </div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
             
-        </ul>
+          </div>
+          
+          <p class="article-info--date">日期：2022-08-22 21:57:54</p>
+        </div>
+        <img src="/imgs/default-cover.webp" alt="" class="article-cover">
+      </div>
     </div>
+    <article class="article-content">
+      <h3 id="树结构操作-triangular-flag-on-post"><a href="#树结构操作-triangular-flag-on-post" class="headerlink" title="树结构操作  :triangular_flag_on_post:"></a>树结构操作  :triangular_flag_on_post:</h3><h3 id="一-页面部分"><a href="#一-页面部分" class="headerlink" title="一 . 页面部分"></a>一 . 页面部分</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- 树表 --&gt;</span><br><span class="line">   &lt;tree-table :data=&quot;typesList&quot; :columns=&quot;columns&quot; show-index :expand-type=&quot;false&quot; border :selection-type=&quot;false&quot;&gt;</span><br><span class="line">     &lt;!-- 操作 --&gt;</span><br><span class="line">     &lt;template slot=&quot;opt&quot; slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">       &lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-edit&quot; @click=&quot;showEditdialog(scope.row.id)&quot;&gt;编辑&lt;/el-button&gt;</span><br><span class="line">       &lt;el-button type=&quot;danger&quot; icon=&quot;el-icon-delete&quot; @click=&quot;removeById(scope.row.id)&quot;&gt;删除&lt;/el-button&gt;</span><br><span class="line">     &lt;/template&gt;</span><br><span class="line">   &lt;/tree-table&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> &lt;!-- 级联选择器 --&gt;</span><br><span class="line">&lt;el-form-item label=&quot;父级分类：&quot;&gt;</span><br><span class="line">       &lt;el-cascader v-model=&quot;selectedKeys&quot; :options=&quot;parentList&quot; :props=&quot;cascaderProps&quot; @change=&quot;parentHandleChange&quot; clearable change-on-select&gt;&lt;/el-cascader&gt;</span><br><span class="line">     &lt;/el-form-item&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二-数据部分"><a href="#二-数据部分" class="headerlink" title="二.数据部分"></a>二.数据部分</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接入的树表数据</span></span><br><span class="line"><span class="attr">locationTree</span>: [],</span><br><span class="line"><span class="comment">// 对应规则 (props)</span></span><br><span class="line"><span class="attr">defaultProps</span>: &#123;</span><br><span class="line">     <span class="comment">// 次级衔接对应名称</span></span><br><span class="line">        <span class="attr">children</span>: <span class="string">&quot;list&quot;</span>,</span><br><span class="line">     <span class="comment">// 显示的对应label</span></span><br><span class="line">        <span class="attr">label</span>: <span class="string">&quot;assetLocationName&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">          </span><br><span class="line">          </span><br><span class="line">          </span><br><span class="line"><span class="comment">// 级联选择器</span></span><br><span class="line">          </span><br><span class="line">    parentList：[]</span><br><span class="line">     <span class="comment">// 指定选择权配置对象</span></span><br><span class="line">	<span class="attr">cascaderProps</span>: &#123;</span><br><span class="line">  		<span class="attr">value</span>: <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">         <span class="attr">label</span>: <span class="string">&#x27;categoryName&#x27;</span>,</span><br><span class="line">         <span class="attr">children</span>: <span class="string">&#x27;children&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 选择子集  id 数组形式(必须)</span></span><br><span class="line">    <span class="attr">selectedKeys</span>: [],</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-操作及接口部分"><a href="#三-操作及接口部分" class="headerlink" title="三.操作及接口部分"></a>三.操作及接口部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 修改按钮点击事件</span></span><br><span class="line"> <span class="keyword">async</span> <span class="title function_">showEditdialog</span>(<span class="params">id</span>) &#123;</span><br><span class="line">   <span class="variable language_">this</span>.<span class="property">editDialogVisible</span> = <span class="literal">true</span></span><br><span class="line">   <span class="keyword">const</span> &#123; <span class="attr">data</span>: res &#125; = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">$http</span>.<span class="title function_">get</span>(<span class="string">&#x27;/assets/category/&#x27;</span> + id)</span><br><span class="line">   <span class="keyword">if</span> (res.<span class="property">status</span> !== <span class="number">200</span>) &#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;查询类型列失败！&#x27;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">   <span class="comment">// this.editForm = res.data.pakWorkOrder</span></span><br><span class="line">   <span class="variable language_">this</span>.<span class="property">editForm</span> = res.<span class="property">data</span></span><br><span class="line">   <span class="variable language_">this</span>.<span class="property">editDialogVisible</span> = <span class="literal">true</span></span><br><span class="line"> &#125;,</span><br><span class="line">     </span><br><span class="line"><span class="comment">// 监听添加时改变选择</span></span><br><span class="line"> <span class="title function_">parentHandleChange</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">selectedKeys</span>)</span><br><span class="line">   <span class="comment">// 当selectedKeys数组中length&gt;0   已选中父级分类</span></span><br><span class="line">   <span class="comment">// 反之 未选择</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">selectedKeys</span>.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="comment">// 父级分类id</span></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">addForm</span>.<span class="property">parentId</span> = <span class="variable language_">this</span>.<span class="property">selectedKeys</span>[<span class="variable language_">this</span>.<span class="property">selectedKeys</span>.<span class="property">length</span> - <span class="number">1</span>]</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 没选中改为0</span></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">addForm</span>.<span class="property">parentId</span> = <span class="number">0</span></span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+
+    </article>
+    
+    <div class="read-nums">
+      <!-- id 将作为查询条件 -->
+      <span id="2022/08/22/树表选择子类并传对应id(级联选择器）/" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">浏览量</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
+    <div class="comments-intro">
+      <h2>评论区</h2>
+      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
+    </div>
+    <div id="vcomments" class="vcomments"></div>
+    
+  </div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9C-triangular-flag-on-post"><span class="toc-number">1.</span> <span class="toc-text">树结构操作  :triangular_flag_on_post:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E9%A1%B5%E9%9D%A2%E9%83%A8%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">一 . 页面部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E9%83%A8%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">二.数据部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%8E%A5%E5%8F%A3%E9%83%A8%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">三.操作及接口部分</span></a></li></ol>
+      </div>
+      
+        <div class="catelogue catelogue-2">
+          
+            <p>
+              <span>上一篇：</span>
+              <a href="/2022/08/22/树结构列表选择与点击/"></a>
+            </p>
+           
+          
+            <p>
+              <span>下一篇</span>
+              <a href="/2022/08/22/深浅拷贝的运用/"></a>
+            </p>
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script src="/js/prism.js"></script>
+
+<script>
+  // var定义，避免pjax重新进来造成的重复声明错误
+  var config = JSON.parse('{"enable":true,"appId":"Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz","appKey":"qOqoiUHhH1TGtLRUYURkLRQX","placeholder":"请留下你宝贵的意见吧~","meta":["nick"],"recordIP":true,"visitor":true,"enableQQ":true}')
+  new Valine({
+    el: '#vcomments',
+    appId: config.appId,
+    appKey: config.appKey,
+    placeholder: config.placeholder,
+    meta: config.meta,
+    recordIP: config.recordIP,
+    visitor: config.visitor,
+    enableQQ: config.enableQQ,
+    path: '2022/08/22/树表选择子类并传对应id(级联选择器）/'
+  })
+</script>
+
+
+<script>
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const as = tocs ? tocs.querySelectorAll('a') : []
+    as.forEach(a => {
+      a.addEventListener('click', e => {
+        const href = decodeURIComponent(a.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
+
 </div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">

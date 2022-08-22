@@ -336,82 +336,142 @@
 </div></div>
       <div id="main-container" class="main-container">
 
-    <div class="archive">
-        <h1 class="archive-title">我の博客归档记录</h1>
-        <ul class="archive-list">
+
+  <style>
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+内阴影+圆角*/
+pre::-webkit-scrollbar-track {
+  background-color:#F5F5F5;
+}
+/*定义滑块
+内阴影+圆角*/
+pre::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 83, 100);
+}
+
+pre:active {
+  background-color: rgb(81, 95, 116);
+}
+</style>
+
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title"></h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
             
-                <li class="archive-list__year">
-                    <h2>2022年</h2>
-                    <ul>
-                        
-                            <li class="archive-list__month">
-                                <h3>第08の月</h3>
-                                <ul>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/20/hello-world/">Hello World</a>
-                                                <span>08月20日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/dataFormat(util)/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/echarts/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/vue/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/树表选择子类并传对应id(级联选择器）/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/树结构列表选择与点击/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/深浅拷贝的运用/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2022/08/22/设置公用样式/"></a>
-                                                <span>08月22日</span>
-                                            </div>
-                                        </li>
-                                    
-                                </ul>
-                            </li>
-                        
-                    </ul>
-                </li>
+          </div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
             
-        </ul>
+          </div>
+          
+          <p class="article-info--date">日期：2022-08-22 21:57:54</p>
+        </div>
+        <img src="/imgs/default-cover.webp" alt="" class="article-cover">
+      </div>
     </div>
+    <article class="article-content">
+      <h3 id="red-circle-避免赋值时指向同一地址，导致错误-red-circle"><a href="#red-circle-避免赋值时指向同一地址，导致错误-red-circle" class="headerlink" title=":red_circle:避免赋值时指向同一地址，导致错误:red_circle:"></a>:red_circle:避免赋值时指向同一地址，导致错误:red_circle:</h3><h2 id="1-使用格式转换"><a href="#1-使用格式转换" class="headerlink" title="1.使用格式转换"></a>1.使用格式转换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="title function_">closeMain</span>(<span class="params">val</span>) &#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">flag</span> = val;</span><br><span class="line">       <span class="keyword">var</span> aaa=<span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(val))</span><br><span class="line">       aaa.<span class="title function_">push</span>(<span class="variable language_">this</span>.<span class="property">value</span>);</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(aaa);     </span><br><span class="line">      &#125;</span><br><span class="line"><span class="comment">// JSON.parse(JSON.stringify(val)) 两次格式转换，新建堆内存存储。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用-es6-新语法解决"><a href="#2-使用-es6-新语法解决" class="headerlink" title="2.使用 es6 新语法解决"></a>2.使用 es6 新语法解决</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">closeMain</span>(<span class="params">val</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> aaa=[...val,<span class="variable language_">this</span>.<span class="property">value</span>]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Object-values直接复制一个"><a href="#3-Object-values直接复制一个" class="headerlink" title="3. Object.values直接复制一个"></a>3. Object.values直接复制一个</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">closeMain</span>(<span class="params">val</span>) &#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">flag</span> = val;</span><br><span class="line">    	<span class="keyword">var</span> aaa = <span class="title class_">Object</span>.<span class="title function_">values</span>(val)</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+
+    </article>
+    
+    <div class="read-nums">
+      <!-- id 将作为查询条件 -->
+      <span id="2022/08/22/深浅拷贝的运用/" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">浏览量</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
+    <div class="comments-intro">
+      <h2>评论区</h2>
+      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
+    </div>
+    <div id="vcomments" class="vcomments"></div>
+    
+  </div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#red-circle-%E9%81%BF%E5%85%8D%E8%B5%8B%E5%80%BC%E6%97%B6%E6%8C%87%E5%90%91%E5%90%8C%E4%B8%80%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%AF%BC%E8%87%B4%E9%94%99%E8%AF%AF-red-circle"><span class="toc-number">1.</span> <span class="toc-text">:red_circle:避免赋值时指向同一地址，导致错误:red_circle:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number"></span> <span class="toc-text">1.使用格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-es6-%E6%96%B0%E8%AF%AD%E6%B3%95%E8%A7%A3%E5%86%B3"><span class="toc-number"></span> <span class="toc-text">2.使用 es6 新语法解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Object-values%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E4%B8%80%E4%B8%AA"><span class="toc-number"></span> <span class="toc-text">3. Object.values直接复制一个</span></a>
+      </div>
+      
+        <div class="catelogue catelogue-2">
+          
+            <p>
+              <span>上一篇：</span>
+              <a href="/2022/08/22/树表选择子类并传对应id(级联选择器）/"></a>
+            </p>
+           
+          
+            <p>
+              <span>下一篇</span>
+              <a href="/2022/08/22/设置公用样式/"></a>
+            </p>
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script src="/js/prism.js"></script>
+
+<script>
+  // var定义，避免pjax重新进来造成的重复声明错误
+  var config = JSON.parse('{"enable":true,"appId":"Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz","appKey":"qOqoiUHhH1TGtLRUYURkLRQX","placeholder":"请留下你宝贵的意见吧~","meta":["nick"],"recordIP":true,"visitor":true,"enableQQ":true}')
+  new Valine({
+    el: '#vcomments',
+    appId: config.appId,
+    appKey: config.appKey,
+    placeholder: config.placeholder,
+    meta: config.meta,
+    recordIP: config.recordIP,
+    visitor: config.visitor,
+    enableQQ: config.enableQQ,
+    path: '2022/08/22/深浅拷贝的运用/'
+  })
+</script>
+
+
+<script>
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const as = tocs ? tocs.querySelectorAll('a') : []
+    as.forEach(a => {
+      a.addEventListener('click', e => {
+        const href = decodeURIComponent(a.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
+
 </div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">
